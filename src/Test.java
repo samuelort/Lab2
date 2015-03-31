@@ -26,6 +26,7 @@ public class Test {
         for (int i = 0; i <20 ; i++) {
             ints.add(i);
         }
+        System.out.println();
         CollectionOps.print(ints);
 
         CollectionOps.reverse(ints);
@@ -42,37 +43,28 @@ public class Test {
         li1.add(5);
         li1.add(1);
         li1.add(3);
-        CollectionOps.print(li1);
-        System.out.println();
 
         ArrayList<Integer> li2 = new ArrayList<Integer>();
         li2.add(8);
         li2.add(6);
         li2.add(7);
         li2.add(9);
-        CollectionOps.print(li2);
-        System.out.println();
 
         ArrayList<Integer> li3 = new ArrayList<Integer>();
         li3.add(97);
         li3.add(5);
         li3.add(123);
         li3.add(18);
-        CollectionOps.print(li3);
-        System.out.println();
 
         ArrayList<String> johanneberg = new ArrayList<String>();
         johanneberg.add("HC2");
         johanneberg.add("ED");
         johanneberg.add("HC3");
-        CollectionOps.print(johanneberg);
-        System.out.println();
 
         List<String> lindholmen = new ArrayList<String>();
         lindholmen.add("Saga");
         lindholmen.add("Svea");
         lindholmen.add("Jupiter");
-        CollectionOps.print(lindholmen);
         System.out.println();
 
         System.out.println(CollectionOps.less(li1, li2, intcomp));
