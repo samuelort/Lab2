@@ -30,6 +30,7 @@ public class Test {
         co.print(ints);
 
         co.reverse(ints);
+        System.out.println();
 
         co.print(ints);
 
