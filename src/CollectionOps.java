@@ -15,7 +15,22 @@ public class CollectionOps {
         System.out.print("]");
     }
 
-    public static
+    public static <T> List<T> reverse(List<T> list){
+       int i = 0;
+        int j = list.size()-1;
+        while(i<(list.size()-1)/2 && j>(list.size()-1)/2){
+            swap(list,i,j);
+            i++;
+            j--;
+        }
+        return list;
+    }
+
+    public static <T> void swap(List<T> list, int i, int j){
+        T temp = list.get(i);
+        list.set(i,list.get(j));
+        list.set(j,temp);
+    }
 
     // Put your code for less here ...
     

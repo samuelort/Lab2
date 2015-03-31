@@ -29,5 +29,9 @@ public class Test {
         }
         co.print(ints);
 
+        co.reverse(ints);
+
+        co.print(ints);
+
     }
 }
