@@ -34,7 +34,22 @@ public class CollectionOps {
         return comparator.compare(Collections.max(collection1, comparator), Collections.min(collection2, comparator)) < 0;
     }
 
-    
+
+    public static <T, R> Collection<T> filter(Predicate<T> pred, Collection<T> collection) {
+        Class<? extends Collection> cls = collection.getClass();
+        try {
+            Collection<T> result = (Collection<T>) cls.newInstance();
+
+            for (T x : collection) {
+                if (pred.test(x)) {
+                    result.add(x);
+                }
+                return result;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     // Example
     public static <T,R> Collection<R>
     map(Function<T,R> f,Collection<T> c) 
