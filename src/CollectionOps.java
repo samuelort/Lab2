@@ -1,7 +1,7 @@
 import java.util.Collection;
-import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class CollectionOps {
 
@@ -30,8 +30,8 @@ public class CollectionOps {
         list.set(j,temp);
     }
 
-    public static <T> boolean less(Collection<Integer> collection1, Collection<Integer> collection2, IntComparator comparator) {
-        return comparator.compare( Collections.max(collection1,comparator), Collections.min(collection2,comparator) ) < 0;
+    public static <T> boolean less(Collection<T> collection1, Collection<T> collection2, Comparator<T> comparator) {
+        return comparator.compare(Collections.max(collection1, comparator), Collections.min(collection2, comparator)) < 0;
     }
 
     

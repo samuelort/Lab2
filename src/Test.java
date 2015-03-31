@@ -1,8 +1,5 @@
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
-import java.lang.Object.*;
 
 /**
  * Created by samuelort on 15-03-31.
@@ -29,27 +26,57 @@ public class Test {
         for (int i = 0; i <20 ; i++) {
             ints.add(i);
         }
-        co.print(ints);
+        CollectionOps.print(ints);
 
-        co.reverse(ints);
+        CollectionOps.reverse(ints);
         System.out.println();
 
-        co.print(ints);
+        CollectionOps.print(ints);
         System.out.println();
-        IntComparator intComparator = new IntComparator();
-        List<Integer> li1 = new ArrayList<Integer>();
-        List<Integer> li2 = new ArrayList<Integer>();
+        IntComparator intcomp = new IntComparator();
+        StringComparator stringcomp = new StringComparator();
+
+        ArrayList<Integer> li1 = new ArrayList<Integer>();
         li1.add(4);
         li1.add(2);
         li1.add(5);
         li1.add(1);
+        li1.add(3);
+        CollectionOps.print(li1);
+        System.out.println();
+
+        ArrayList<Integer> li2 = new ArrayList<Integer>();
         li2.add(8);
         li2.add(6);
         li2.add(7);
         li2.add(9);
+        CollectionOps.print(li2);
+        System.out.println();
 
-       boolean res4 = co.less(li1,li2,intComparator);
-        System.out.println(res4);
+        ArrayList<Integer> li3 = new ArrayList<Integer>();
+        li3.add(97);
+        li3.add(5);
+        li3.add(123);
+        li3.add(18);
+        CollectionOps.print(li3);
+        System.out.println();
 
+        ArrayList<String> johanneberg = new ArrayList<String>();
+        johanneberg.add("HC2");
+        johanneberg.add("ED");
+        johanneberg.add("HC3");
+        CollectionOps.print(johanneberg);
+        System.out.println();
+
+        List<String> lindholmen = new ArrayList<String>();
+        lindholmen.add("Saga");
+        lindholmen.add("Svea");
+        lindholmen.add("Jupiter");
+        CollectionOps.print(lindholmen);
+        System.out.println();
+
+        System.out.println(CollectionOps.less(li1, li2, intcomp));
+        System.out.println(CollectionOps.less(li1, li3, intcomp));
+        System.out.println(CollectionOps.less(johanneberg, lindholmen, stringcomp));
     }
 }
