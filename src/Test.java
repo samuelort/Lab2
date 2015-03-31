@@ -35,8 +35,21 @@ public class Test {
         System.out.println();
 
         co.print(ints);
+        System.out.println();
+        IntComparator intComparator = new IntComparator();
+        List<Integer> li1 = new ArrayList<Integer>();
+        List<Integer> li2 = new ArrayList<Integer>();
+        li1.add(4);
+        li1.add(2);
+        li1.add(5);
+        li1.add(1);
+        li2.add(8);
+        li2.add(6);
+        li2.add(7);
+        li2.add(9);
 
-
+       boolean res4 = co.less(li1,li2,intComparator);
+        System.out.println(res4);
 
     }
 }

@@ -1,5 +1,6 @@
-import java.util.List;
 import java.util.Collection;
+import java.util.List;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class CollectionOps {
@@ -29,12 +30,10 @@ public class CollectionOps {
         list.set(j,temp);
     }
 
-    public static <T> boolean less(Collection<T> collection1, Collection<T> collection2,Comparator<Collection<T>> comparator){
-        if ( comparator.compare(collection1,collection2) == -1){
-            return true;
-        }else
-            return false;
+    public static <T> boolean less(Collection<Integer> collection1, Collection<Integer> collection2, IntComparator comparator) {
+        return comparator.compare( Collections.max(collection1,comparator), Collections.min(collection2,comparator) ) < 0;
     }
+
     
     // Example
     public static <T,R> Collection<R>
