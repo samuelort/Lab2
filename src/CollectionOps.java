@@ -1,8 +1,5 @@
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class CollectionOps {
@@ -32,7 +29,12 @@ public class CollectionOps {
         list.set(j,temp);
     }
 
-    // Put your code for less here ...
+    public static <T> boolean less(Collection<T> collection1, Collection<T> collection2,Comparator<Collection<T>> comparator){
+        if ( comparator.compare(collection1,collection2) == -1){
+            return true;
+        }else
+            return false;
+    }
     
     // Example
     public static <T,R> Collection<R>

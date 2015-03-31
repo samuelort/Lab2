@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
+import java.lang.Object.*;
 
 /**
  * Created by samuelort on 15-03-31.
@@ -33,6 +35,8 @@ public class Test {
         System.out.println();
 
         co.print(ints);
+
+
 
     }
 }
