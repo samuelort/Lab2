@@ -82,6 +82,9 @@ public class Test {
         //Gör om alla talen till binära tal.
         List<Integer> l7 = new ArrayList<Integer>(Arrays.asList(3, 11, 21, 18, 22, 44, 21, 23, 23, 31, 45, 60012, 2549, 4500, 3450, 3529));
 
+
+        //Skapar och skriver ut.
+
         Collection<Integer> l2 = CollectionOps.map(new Sign(), l1);
         CollectionOps.print(l2);
         System.out.println();
@@ -93,6 +96,7 @@ public class Test {
         System.out.println();
         Collection<String> l8 = CollectionOps.map(new ToBinary(), l7);
         CollectionOps.print(l8);
+
 
     }
 }
