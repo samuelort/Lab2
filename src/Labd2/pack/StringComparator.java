@@ -1,3 +1,5 @@
+package Labd2.pack;
+
 import java.util.Comparator;
 
 /**
