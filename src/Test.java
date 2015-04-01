@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -70,5 +72,27 @@ public class Test {
         System.out.println(CollectionOps.less(li1, li2, intcomp));
         System.out.println(CollectionOps.less(li1, li3, intcomp));
         System.out.println(CollectionOps.less(johanneberg, lindholmen, stringcomp));
+
+        //Testar om pos eller negativ
+        List<Double> l1 = new ArrayList<Double>(Arrays.asList(23.4, -19.0, 377.62, 0.0, 18.9, -32.12));
+        //Testar alla siffror om de är jämna
+        List<Integer> l3 = new ArrayList<Integer>(Arrays.asList(3, -42, 88, 19, -37, 0, 18));
+        //Testar om de är primtal
+        List<Integer> l5 = new ArrayList<Integer>(Arrays.asList(3, 11, 21, 18, 22, 44, 21, 23, 23, 31, 45, 60012, 2549, 4500, 3450, 3529));
+        //Gör om alla talen till binära tal.
+        List<Integer> l7 = new ArrayList<Integer>(Arrays.asList(3, 11, 21, 18, 22, 44, 21, 23, 23, 31, 45, 60012, 2549, 4500, 3450, 3529));
+
+        Collection<Integer> l2 = CollectionOps.map(new Sign(), l1);
+        CollectionOps.print(l2);
+        System.out.println();
+        Collection<Integer> l4 = CollectionOps.filter(new IsEven(), l3);
+        CollectionOps.print(l4);
+        System.out.println();
+        Collection<Integer> l6 = CollectionOps.filter(new IsPrime(), l5);
+        CollectionOps.print(l6);
+        System.out.println();
+        Collection<String> l8 = CollectionOps.map(new ToBinary(), l7);
+        CollectionOps.print(l8);
+
     }
 }

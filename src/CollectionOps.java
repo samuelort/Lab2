@@ -5,29 +5,29 @@ import java.util.List;
 
 public class CollectionOps {
 
-    public static <T> void print(Collection<T> collection){
+    public static <T> void print(Collection<T> collection) {
         System.out.print("[");
-        for (T t: collection){
+        for (T t : collection) {
             System.out.print(t + " ");
         }
         System.out.print("]");
     }
 
-    public static <T> List<T> reverse(List<T> list){
-       int i = 0;
-        int j = list.size()-1;
-        while(i<(list.size()-1)/2 && j>(list.size()-1)/2){
-            swap(list,i,j);
+    public static <T> List<T> reverse(List<T> list) {
+        int i = 0;
+        int j = list.size() - 1;
+        while (i < (list.size() - 1) / 2 && j > (list.size() - 1) / 2) {
+            swap(list, i, j);
             i++;
             j--;
         }
         return list;
     }
 
-    public static <T> void swap(List<T> list, int i, int j){
+    public static <T> void swap(List<T> list, int i, int j) {
         T temp = list.get(i);
-        list.set(i,list.get(j));
-        list.set(j,temp);
+        list.set(i, list.get(j));
+        list.set(j, temp);
     }
 
     public static <T> boolean less(Collection<T> collection1, Collection<T> collection2, Comparator<T> comparator) {
@@ -35,42 +35,47 @@ public class CollectionOps {
     }
 
 
-    public static <T, R> Collection<T> filter(Predicate<T> pred, Collection<T> collection) {
+    public static <T> Collection<T> filter(Predicate<T> pred, Collection<T> collection) {
+
         Class<? extends Collection> cls = collection.getClass();
+
         try {
-            Collection<T> result = (Collection<T>) cls.newInstance();
+            Collection<T> result = cls.newInstance();
 
             for (T x : collection) {
                 if (pred.test(x)) {
                     result.add(x);
                 }
-                return result;
             }
+
+            return result;
+
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-    // Example
-    public static <T,R> Collection<R>
-    map(Function<T,R> f,Collection<T> c) 
-    {
-        // Determine the dynamic type of the collection
-        Class<? extends Collection> cls = c.getClass();
+    }
+
+    public static <T, R> Collection<R> map(Function<T, R> function, Collection<T> collection) {
+
+
+        Class<? extends Collection> cls = collection.getClass();
+
         try {
-            // Create an object of the same dynamic type as c
-            Collection<R> result = (Collection<R>)cls.newInstance();
-            // type.cast(type.newInstance());
-            // Copy the elements and apply op to them
-            for ( T x : c )
-                result.add(f.apply(x));
-            return result;   
-        }   
-        catch (Exception e) {
+            Collection<R> result = cls.newInstance();
+
+
+            for (T x : collection) {
+                result.add(function.apply(x));
+            }
+            return result;
+
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
-    
-    // Put your code for filter here ...
+
+
 
 }
