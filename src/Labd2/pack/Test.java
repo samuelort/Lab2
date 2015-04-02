@@ -80,26 +80,29 @@ public class Test {
 
         //Testar om pos eller negativ
         List<Double> l1 = new ArrayList<Double>(Arrays.asList(23.4, -19.0, 377.62, 0.0, 18.9, -32.12));
-        //Testar alla siffror om de är jämna
+
         List<Integer> l3 = new ArrayList<Integer>(Arrays.asList(3, -42, 88, 19, -37, 0, 18));
-        //Testar om de är primtal
+
         List<Integer> l5 = new ArrayList<Integer>(Arrays.asList(3, 11, 21, 18, 22, 44, 21, 23, 23, 31, 45, 60012, 2549, 4500, 3450, 3529));
-        //Gör om alla talen till binära tal.
-        List<Integer> l7 = new ArrayList<Integer>(Arrays.asList(3, 11, 21, 18, 22, 44, 21, 23, 23, 31, 45, 60012, 2549, 4500, 3450, 3529));
 
 
+        //-------------------------
         //Skapar och skriver ut.
-
+        //-------------------------
+        //Testar om pos eller negativ
         Collection<Integer> l2 = map(new Sign(), l1);
         CollectionOps.print(l2);
         System.out.println();
+        //Testar alla siffror om de är jämna
         Collection<Integer> l4 = CollectionOps.filter(new IsEven(), l3);
         CollectionOps.print(l4);
         System.out.println();
+        //Testar om de är primtal
         Collection<Integer> l6 = CollectionOps.filter(new IsPrime(), l5);
         CollectionOps.print(l6);
         System.out.println();
-        Collection<String> l8 = map(new ToBinary(), l7);
+        //Gör om alla talen till binära tal.
+        Collection<String> l8 = map(new ToBinary(), l5);
         CollectionOps.print(l8);
 
         ArrayList<Person> pl = new ArrayList<>();
@@ -116,6 +119,10 @@ public class Test {
                 .map(p -> p.getEmail())
                 .collect(Collectors.toList());
         System.out.println();
+
+
         CollectionOps.print(oldAndFe);
+
+
     }
 }
