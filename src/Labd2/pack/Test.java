@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static Labd2.pack.CollectionOps.map;
 
 /**
  * Created by samuelort on 15-03-31.
@@ -87,7 +90,7 @@ public class Test {
 
         //Skapar och skriver ut.
 
-        Collection<Integer> l2 = CollectionOps.map(new Sign(), l1);
+        Collection<Integer> l2 = map(new Sign(), l1);
         CollectionOps.print(l2);
         System.out.println();
         Collection<Integer> l4 = CollectionOps.filter(new IsEven(), l3);
@@ -96,9 +99,23 @@ public class Test {
         Collection<Integer> l6 = CollectionOps.filter(new IsPrime(), l5);
         CollectionOps.print(l6);
         System.out.println();
-        Collection<String> l8 = CollectionOps.map(new ToBinary(), l7);
+        Collection<String> l8 = map(new ToBinary(), l7);
         CollectionOps.print(l8);
 
+        ArrayList<Person> pl = new ArrayList<>();
+        pl.add(new Person("Nisse", "nisse@hipnet.moc", "male", 23));
+        pl.add(new Person("Lisa", "lisa@shipnet.sea", "female", 67));
+        pl.add(new Person("Ada", "ada@jahuu.vanu", "female", 49));
+        pl.add(new Person("Kal", "karl@gotnet.vg", "male", 78));
+        pl.add(new Person("Beda", "beda@fishnet.cod", "female", 102));
 
+        // Predicate<Person> oldAndFe = (u -> u.getAge() > 65 && u.getGender() =="female");
+
+        List<String> oldAndFe = pl.stream()
+                .filter(p -> p.getAge() > 65 && p.getGender() == "female")
+                .map(p -> p.getEmail())
+                .collect(Collectors.toList());
+        System.out.println();
+        CollectionOps.print(oldAndFe);
     }
 }
